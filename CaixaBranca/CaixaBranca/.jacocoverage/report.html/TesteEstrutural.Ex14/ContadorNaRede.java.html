@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ContadorNaRede.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;CaixaBranca&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">TesteEstrutural.Ex14</a> &gt; <span class="el_source">ContadorNaRede.java</span></div><h1>ContadorNaRede.java</h1><pre class="source lang-java linenums">package TesteEstrutural.Ex14;
+
+public class ContadorNaRede {
+
+    RedeMovel rede;
+
+<span class="fc" id="L7">    public ContadorNaRede(RedeMovel rede) {</span>
+<span class="fc" id="L8">        this.rede = rede;</span>
+<span class="fc" id="L9">    }</span>
+
+    public String enviarNumeros(String telefone, int v[]) {
+<span class="fc" id="L12">        int npar = 0, nNegativo = 0;/*1</span>
+        */
+<span class="fc bfc" id="L14" title="All 2 branches covered.">        for (int i = 0 /*2*/; i &lt; v.length /*3*/; i++ /*4*/) {</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">            if (v[i] % 2 == 0) /*5*/ {</span>
+<span class="fc" id="L16">                npar++; /*6*/</span>
+            }
+
+<span class="fc bfc" id="L19" title="All 2 branches covered.">            if (v[i] &lt; 0) /*7*/ {</span>
+<span class="fc" id="L20">                nNegativo++; /*8*/</span>
+            }
+        }
+        
+<span class="fc" id="L24">        String msg = &quot;Enviado. pares: &quot; + npar + &quot;; negativos: &quot; + nNegativo; /*9*/</span>
+
+<span class="fc bfc" id="L26" title="All 4 branches covered.">        if (rede == null /*10*/ || !rede.estaConectado() /*11*/) {</span>
+<span class="fc" id="L27">            throw new RuntimeException(&quot;Sem internet&quot;); /*12*/</span>
+        }
+
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (rede.enviarSMS(telefone, msg) /*13*/) {</span>
+<span class="fc" id="L31">            return msg; /*14*/</span>
+        } else {
+<span class="fc" id="L33">            return &quot;Erro no envio. Verifique.&quot;; /*15*/</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
